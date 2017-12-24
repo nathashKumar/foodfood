@@ -1,0 +1,43 @@
+body{
+  height: auto;
+  max-height: auto;
+  background: #f7f7f7;
+  background-image: url("./images/banner.jpg");
+  background-size: cover;
+}
+
+.font-white{
+  color: white;
+}
+
+.appContainer{
+  margin-top: 10em; 
+}
+
+.appHeader{
+  position: fixed;
+  top: 0px;  
+  width: 100%;
+  background: #3F51B5;
+  z-index: 1;
+  height: 100px;
+  padding: 10px;
+}
+
+.appFooter{
+  position: fixed;
+  bottom: 0px;  
+  width: 100%;
+  background: #3F51B5;
+  z-index: 1;
+  height: 100px;
+  padding: 10px;
+}
+
+.appLocationSearch .input{
+  width: 100%;
+}
+
+.homePageOffers{
+  margin-top: 5%;
+}
