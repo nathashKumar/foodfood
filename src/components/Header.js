@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Image, Menu, Icon } from "semantic-ui-react";
-import logo from "../images/logo_grey.png";
+import { Menu, Icon } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 
 class Header extends Component {
@@ -8,8 +7,24 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeItem: "home"
+            activeItem: this.getActiveMenu(this.props.location.pathname)
         };
+    }
+
+    componentWillReceiveProps(nextProp) {
+        if (this.props.location.pathname !== nextProp.location.pathname) {
+            this.setState({
+                activeItem: this.getActiveMenu(nextProp.location.pathname)
+            })
+        }
+    }
+
+    getActiveMenu(path) {
+        let menus = this.getMenus();
+        let activeMenu = menus.find((el) => {
+            return el.path === path;
+        });
+        return activeMenu.name || "home";
     }
 
     getMenus = () => {
@@ -24,15 +39,15 @@ class Header extends Component {
             icon: "sign in",
             path: "/login"
         }, {
-            name: "createAccount",
-            label: "Create Account",
+            name: "signUp",
+            label: "Sign Up",
             icon: "signup",
-            path: "/createAccount"
+            path: "/signUp"
         }];
         return menus;
     }
 
-    redirect = (e, {name, data}) => {
+    redirect = (e, { name, data }) => {
         this.setState({ activeItem: name });
         this.props.history.push(data.path);
     }
@@ -46,6 +61,7 @@ class Header extends Component {
         let menuItems = menus.map((el, index) => {
             return (
                 <Menu.Item
+                    as="span"
                     key={index}
                     data={el}
                     name={el.name}
@@ -81,5 +97,5 @@ class Header extends Component {
     }
 
 }
-
 export default withRouter(Header);
+//export default Header

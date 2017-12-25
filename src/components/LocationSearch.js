@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Grid, Segment, Form, Button, Search, Label, Header } from "semantic-ui-react";
+import { Grid, Segment, Search } from "semantic-ui-react";
 var axios = require('axios');
 
 class LocationSearch extends Component {

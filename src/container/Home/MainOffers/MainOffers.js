@@ -5,7 +5,7 @@ class MainOffers extends Component {
 
 	render() {
 		return (
-			<div className="homePageOffers">
+			<div className="homePageOfferss">
 				<Offers />
 			</div>
 		);
